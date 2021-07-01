@@ -1,1 +1,1 @@
-# require 'app/carrot.rb'
+require 'app/carrot.rb'

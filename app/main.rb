@@ -2,16 +2,30 @@ require 'smaug.rb'
 require 'lib/optcarrot-combined.rb'
 require 'app/requires.rb'
 
-Maw!
-
 class Fixnum
   def [](index)
     to_s(2)[index].to_i
   end
 end
 
-def tick args
-  solids << [0,0,1280,720,255,0,0]
-  # puts "Hello world"
+class Regexp
+  def self.compile str
+    log_info "[Regexp.compile] #{str}"
+    new str
+  end
+
+  attr_accessor :str
+  protected :str=
+
+  def initialize str
+    @str = str
+  end
+
+  def to_s
+    "<Regexp #{@str}>"
+  end
+
+  def method_missing name, *args, &blk
+    log_info "#{self} method_missing: #{name} #{args} #{blk}"
+  end
 end
-puts "Hello world"
