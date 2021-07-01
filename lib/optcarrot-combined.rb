@@ -805,7 +805,7 @@ module Optcarrot
       options = self.class::OPTIONS
       opts = {}
       # enabled_opts ||= [:all]
-      enabled_opts ||= []
+      enabled_opts = []
       default =
         (enabled_opts == [:all] || enabled_opts != [] && enabled_opts.all? {|opt| opt.to_s.start_with?("-") })
       options.each {|opt| opts[opt] = default }
@@ -993,6 +993,8 @@ module Optcarrot
 
       # load the generated core
       if @conf.load_cpu
+        puts "CPU code is #{@conf.load_cpu}"
+        # puts File.read(@conf.load_cpu)
         eval(File.read(@conf.load_cpu))
       elsif @conf.opt_cpu and false
         eval(OptimizedCodeBuilder.new(@conf.loglevel, @conf.opt_cpu).build, nil, "(generated CPU core)")
@@ -3230,8 +3232,11 @@ module Optcarrot
       @cpu = cpu
       @palette = palette
 
+      log_info "PPU conf is #{@conf}"
+      log_info "load_ppu is #{@conf.load_ppu}"
+
       if @conf.load_ppu
-        eval(File.read(@conf.load_ppu))
+         eval(File.read(@conf.load_ppu))
       elsif @conf.opt_ppu and false
         eval(OptimizedCodeBuilder.new(@conf.loglevel, @conf.opt_ppu).build, nil, "(generated PPU core)")
       end
