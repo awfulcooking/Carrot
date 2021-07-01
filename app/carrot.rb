@@ -8,7 +8,7 @@ init {
   log_info "Carrot is initialising"
   start = Time.now
 
-  $nes = Optcarrot::NES.new(['--video=none', '--audio=none', 'lib/optcarrot/examples/Lan_Master.nes'])
+  $nes = Optcarrot::NES.new(['--video=none', '--audio=none', '--input=none', 'lib/optcarrot/examples/Lan_Master.nes'])
   log_info "Carrot initialised. Took #{start-Time.now}s"
 }
 
