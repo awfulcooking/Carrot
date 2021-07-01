@@ -3,7 +3,7 @@ Maw!
 ARGV = ['--headless', '--opt=none', '--load-cpu=golden-cpu.rb', '--load-ppu=golden-ppu.rb', 'lib/optcarrot/examples/Lan_Master.nes']
 
 def reinit!
-  $top_level.instance_eval { init }
+  $top_level.init
 end
 
 init {
