@@ -29,3 +29,6 @@ class Regexp
     log_info "#{self} method_missing: #{name} #{args} #{blk}"
   end
 end
+
+class LoadError < StandardError
+end

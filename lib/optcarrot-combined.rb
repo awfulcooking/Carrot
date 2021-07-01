@@ -4630,7 +4630,8 @@ end
 module Optcarrot
   # NES palette generators
   module Palette
-    module_function
+    # module_function
+    class << self
 
     # I don't know where this palette definition came from, but many emulators are using this palette
     def defacto_palette
@@ -4660,6 +4661,7 @@ module Optcarrot
           b = [((rgb >>  0 & 0xff) * bf).floor, 0xff].min
           [r, g, b]
         end
+      end
       end
     end
 
@@ -4725,8 +4727,7 @@ module Optcarrot
       }
     }
 
-    module_function
-
+    class << self
     def load(conf)
       video = load_each(conf, :video, conf.video).new(conf)
       audio = load_each(conf, :audio, conf.audio).new(conf)
@@ -4752,6 +4753,7 @@ module Optcarrot
         end
         selected
       end
+    end
     end
   end
 
