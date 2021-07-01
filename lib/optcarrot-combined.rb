@@ -5000,12 +5000,14 @@ module Optcarrot
 
       def parse_option
         arg, operand = @argv.shift.split("=", 2)
-        if arg.chars.all? { |c| [*(?a..?z), *(?A..?Z), *(0..9).map(&:to_s), '-'].include?(c) }
-          args = $1.chars.map {|a| "-#{ a }" }
-          args.last << "=" << operand if operand
-          @argv.unshift(*args)
-          return
-        end
+        puts "parse_option.. arg #{arg} operand #{operand}"
+        # if arg.chars.all? { |c| [*(?a..?z), *(?A..?Z), *(0..9).map(&:to_s), '-'].include?(c) }
+        #   args = arg.
+        #   args = $1.chars.map {|a| "-#{ a }" }
+        #   args.last << "=" << operand if operand
+        #   @argv.unshift(*args)
+        #   return
+        # end
         opt, id, no = find_option(arg)
         if opt
           if opt[:shortcut]
