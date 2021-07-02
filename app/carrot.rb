@@ -1,6 +1,6 @@
 Maw!
 
-ARGV = ['--headless', '--opt=none', '--load-cpu=golden-cpu.rb', '--load-ppu=golden-ppu.rb', 'lib/optcarrot/examples/Lan_Master.nes']
+ARGV = ['--headless', '--load-cpu=golden-cpu.rb', '--load-ppu=golden-ppu.rb', 'Lan_Master.nes']
 
 def reinit!
   $top_level.init
